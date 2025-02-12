@@ -59,7 +59,12 @@ function App() {
             );
           })}
         </select>
-        <p>Use {"'<'"} and {"'>'"} Arrow Keys as Shortcut</p>
+        <p>
+          Use {"'<'"} and {"'>'"} Arrow Keys as Shortcut
+        </p>
+        <a href="https://github.com/Sujas-Aggarwal/image-part-highlighter">
+          <img src="/github.png" width={"30px"} />
+        </a>
       </div>
     </div>
   );
