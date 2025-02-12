@@ -6,7 +6,26 @@ html {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: #ffceec;
+  background: #d4e8ff;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+}
+
+.select {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  background: white;
+  transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.select:hover {
+  border-color: #d4e8ff;
+  box-shadow: 0px 3px 8px rgba(255, 105, 180, 0.3);
 }
 
 .container {
@@ -30,6 +49,8 @@ html {
   justify-content: center;
   align-items: center;
   position: relative;
+  pointer-events: none;
+  user-select: none;
 }
 
 .canvas > img {
@@ -40,4 +61,5 @@ html {
   position: absolute;
   left: 0;
   top: 0;
+  transition:  all 0.3s ease-in-out;
 }

@@ -1,14 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [currentSelection, setcurrentSelection] = useState<number>(0);
   const items = ["None", "Both", "Boy", "Girl"];
+  useEffect(() => {
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") {
+        setcurrentSelection((prev) => {
+          if (prev === items.length - 1) {
+            return 0;
+          }
+          return prev + 1;
+        });
+      }
+      if (e.key === "ArrowLeft") {
+        setcurrentSelection((prev) => {
+          if (prev === 0) {
+            return items.length - 1;
+          }
+          return prev - 1;
+        });
+      }
+    });
+  }, []);
   return (
     <div className="container">
       <div className="canvas">
         <img src="/full.jpg" />
         {items.map((item, index) => {
-          console.log(index, currentSelection);
           if (item == "None") return;
           return (
             <img
@@ -16,7 +35,7 @@ function App() {
               style={{
                 filter:
                   currentSelection === index
-                    ? "drop-shadow(5px 5px 20px rgba(255,255, 255, 1))"
+                    ? "drop-shadow(0px 0px 30px rgba(255,255, 255, 1))"
                     : "none",
               }}
               src={`/${item.toLowerCase()}.png`}
@@ -40,6 +59,7 @@ function App() {
             );
           })}
         </select>
+        <p>Use {"'<'"} and {"'>'"} Arrow Keys as Shortcut</p>
       </div>
     </div>
   );
